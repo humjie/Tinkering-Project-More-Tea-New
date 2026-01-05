@@ -29,7 +29,7 @@ class SimpleController(Node):
         # GEOMETRY CALCULATION
         # k = (separation_width + separation_length) / 2.0
         # Sometimes defined strictly as l_x + l_y depending on frame definitions
-        self.geom_factor_ = (self.separation_width_ + self.separation_length_) / 2.0
+        self.geom_factor_ = (self.wheel_separation_width_ + self.wheel_separation_length_) / 2.0
 
 
     def velCallback(self, msg):
