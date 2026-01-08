@@ -11,9 +11,9 @@ class SimpleController(Node):
     def __init__(self):
         super().__init__('simple_controller')
         
-        self.declare_parameter('wheel_radius', 0.029)
-        self.declare_parameter('wheel_separation_width', 0.14)  # distance between left and right wheels
-        self.declare_parameter('wheel_separation_length', 0.121)  # distance between front and back wheels
+        self.declare_parameter('wheel_radius', 0.029315)
+        self.declare_parameter('wheel_separation_width', 0.16)  # distance between left and right wheels
+        self.declare_parameter('wheel_separation_length', 0.21)  # distance between front and back wheels
 
         self.wheel_radius_ = self.get_parameter('wheel_radius').get_parameter_value().double_value
         self.wheel_separation_width_ = self.get_parameter('wheel_separation_width').get_parameter_value().double_value

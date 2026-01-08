@@ -13,17 +13,17 @@ def generate_launch_description():
 
     wheel_radius_arg = DeclareLaunchArgument(
         'wheel_radius',
-        default_value='0.029',
+        default_value='0.029315',
     )
 
     wheel_separation_width_arg = DeclareLaunchArgument(
         'wheel_separation_width',
-        default_value='0.14',
+        default_value='0.16',
     )
 
     wheel_separation_length_arg = DeclareLaunchArgument(
         'wheel_separation_length',
-        default_value='0.121',
+        default_value='0.21',
     )
 
     use_python = LaunchConfiguration('use_python')

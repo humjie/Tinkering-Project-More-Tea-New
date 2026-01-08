@@ -14,21 +14,21 @@
   
   <link name="base_link">
     <inertial>
-      <origin xyz="0 0 0.04" rpy="0 0 0" />
+      <origin xyz="0 0 0.12" rpy="0 0 0" />
       <mass value="10"/>
       <inertia ixx="2.2124416e-02" ixy="-1.2294101e-04" ixz="3.4938785e-04"
                iyy="2.1193702e-02" iyz="-5.0120904e-05"
                izz="2.0064271e-02" />
     </inertial>
     <visual>
-      <origin xyz="-0.0925 0.0939 0.058" rpy="0 0 -1.5707963268"/>
+      <origin xyz="0 0 0.12" rpy="3.14159 0 -1.5707963268"/>
       <geometry>
         <mesh filename="package://moretea_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="orange"/>
     </visual>
     <collision>
-      <origin xyz="-0.0925 0.0939 0.058" rpy="0 0 -1.5707963268"/>
+      <origin xyz="0 0 0.12" rpy="3.14159 0 -1.5707963268"/>
       <geometry>
         <mesh filename="package://moretea_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -43,114 +43,126 @@
 
   <link name="wheel_right_link_1">
     <inertial>
-      <origin xyz="0 -0.014 0" rpy="0 0 0" />
+      <origin xyz="0 -0.023 0" rpy="0 0 0" />
       <mass value="0.5" />
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      <inertia ixx="0.000195" ixy="0" ixz="0" 
+               iyy="0.000215" iyz="0" 
+               izz="0.000195" />
     </inertial>
     <visual>
-      <origin xyz="0.03 -0.045 -0.029" rpy="0 0 1.5707963268"/>
+      <origin xyz="0.029315 -0.04132 -0.029315" rpy="0 0 1.5707963268"/>
       <geometry>
         <mesh filename="package://moretea_description/meshes/mecanum_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="blue"/>
     </visual>
     <collision>
-      <origin xyz="0 -0.025 0" rpy="0 0 1.5707963268"/>
+      <origin xyz="0 -0.023 0" rpy="1.5707963268 0 0"/>
       <geometry>
-        <sphere radius="0.029"/>
+        <cylinder radius="0.029315" length="0.046"/>
       </geometry>
     </collision>
   </link>
 
   <joint name="wheel_right_joint_1" type="continuous">
-    <origin xyz="0.0605 -0.07 0.029" rpy="0 0 0" />
+    <origin xyz="0.105 -0.08 0.029315" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="wheel_right_link_1" />
     <axis xyz="0 1 0" />
+    <dynamics damping="0.1"/>
   </joint>
 
   <link name="wheel_right_link_2">
     <inertial>
-      <origin xyz="0 -0.014 0" rpy="0 0 0"/>
+      <origin xyz="0 -0.023 0" rpy="0 0 0"/>
       <mass value="0.5" />
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      <inertia ixx="0.000195" ixy="0" ixz="0" 
+               iyy="0.000215" iyz="0" 
+               izz="0.000195" />
     </inertial>
     <visual>
-      <origin xyz="0.03 -0.045 -0.029" rpy="0 0 1.5707963268"/>
+      <origin xyz="0.029315 -0.04132 -0.029315" rpy="0 0 1.5707963268"/>
       <geometry>
         <mesh filename="package://moretea_description/meshes/mecanum_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="blue"/>
     </visual>
     <collision>
-      <origin xyz="0 -0.025 0" rpy="0 0 1.5707963268"/>
+      <origin xyz="0 -0.023 0" rpy="1.5707963268 0 0"/>
       <geometry>
-        <sphere radius="0.029"/>
+        <cylinder radius="0.029315" length="0.046"/>
       </geometry>
     </collision>
   </link>
 
   <joint name="wheel_right_joint_2" type="continuous">
-    <origin xyz="-0.0605 -0.07 0.029" rpy="0 0 0" />
+    <origin xyz="-0.105 -0.08 0.029315" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="wheel_right_link_2" />
     <axis xyz="0 1 0" />
+    <dynamics damping="0.1"/>
   </joint>
 
   <link name="wheel_left_link_1">
     <inertial>
-      <origin xyz="0 0.014 0" rpy="0 0 0" />
+      <origin xyz="0 0.023 0" rpy="0 0 0" />
       <mass value="0.5" />
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      <inertia ixx="0.000195" ixy="0" ixz="0" 
+               iyy="0.000215" iyz="0" 
+               izz="0.000195" />
     </inertial>
     <visual>
-      <origin xyz="-0.03 0.045 -0.029" rpy="0 0 -1.5707963268"/>
+      <origin xyz="-0.029315 0.04132 -0.029315" rpy="0 0 -1.5707963268"/>
       <geometry>
         <mesh filename="package://moretea_description/meshes/mecanum_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="blue"/>
     </visual>
     <collision>
-      <origin xyz="0 0.025 0" rpy="0 0 -1.5707963268"/>
+      <origin xyz="0 0.023 0" rpy="1.5707963268 0 0"/>
       <geometry>
-        <sphere radius="0.029"/>
+        <cylinder radius="0.029315" length="0.046"/>
       </geometry>
     </collision>
   </link>
 
   <joint name="wheel_left_joint_1" type="continuous">
-    <origin xyz="0.0605 0.07 0.029" rpy="0 0 0" />
+    <origin xyz="0.105 0.08 0.029315" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="wheel_left_link_1" />
     <axis xyz="0 1 0" />
+    <dynamics damping="0.1"/>
   </joint>
 
   <link name="wheel_left_link_2">
     <inertial>
-      <origin xyz="0 0.014 0" rpy="0 0 0" />
+      <origin xyz="0 0.023 0" rpy="0 0 0" />
       <mass value="0.5" />
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      <inertia ixx="0.000195" ixy="0" ixz="0" 
+               iyy="0.000215" iyz="0" 
+               izz="0.000195" />
     </inertial>
     <visual>
-      <origin xyz="-0.03 0.045 -0.029" rpy="0 0 -1.5707963268"/>
+      <origin xyz="-0.029315 0.04132 -0.029315" rpy="0 0 -1.5707963268"/>
       <geometry>
         <mesh filename="package://moretea_description/meshes/mecanum_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="blue"/>
     </visual>
     <collision>
-      <origin xyz="0 0.025 0" rpy="0 0 -1.5707963268"/>
+      <origin xyz="0 0.023 0" rpy="1.5707963268 0 0"/>
       <geometry>
-        <sphere radius="0.029"/>
+        <cylinder radius="0.029315" length="0.046"/>
       </geometry>
     </collision>
   </link>
 
   <joint name="wheel_left_joint_2" type="continuous">
-    <origin xyz="-0.0605 0.07 0.029" rpy="0 0 0" />
+    <origin xyz="-0.105 0.08 0.029315" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="wheel_left_link_2" />
     <axis xyz="0 1 0" />
+    <dynamics damping="0.1"/>
   </joint>
 
   <link name="imu_link">

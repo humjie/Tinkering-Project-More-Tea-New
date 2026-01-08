@@ -7,9 +7,9 @@ SimpleController::SimpleController(const std::string& name)
     : Node(name)
 {
     // 1. Declare Parameters
-    declare_parameter("wheel_radius", 0.029);
-    declare_parameter("wheel_separation_width", 0.14);  // Distance Left-Right
-    declare_parameter("wheel_separation_length", 0.121); // Distance Front-Back
+    declare_parameter("wheel_radius", 0.029315);
+    declare_parameter("wheel_separation_width", 0.16);  // Distance Left-Right
+    declare_parameter("wheel_separation_length", 0.21); // Distance Front-Back
 
     // 2. Get Parameters
     wheel_radius_ = get_parameter("wheel_radius").as_double();
@@ -37,12 +37,12 @@ SimpleController::SimpleController(const std::string& name)
 void SimpleController::velCallback(const geometry_msgs::msg::TwistStamped &msg)
 {
     // 1. Extract Robot Velocities
-    double vx = msg.twist.linear.x;
-    double vy = msg.twist.linear.y; // Mecanum can move sideways
-    double wz = msg.twist.angular.z;
+    double vx = msg.twist.linear.x;  // Forward/backward velocity
+    double vy = msg.twist.linear.y;  // Strafe left/right velocity
+    double wz = msg.twist.angular.z; // Rotation velocity
 
     // 2. Calculate Wheel Velocities (Inverse Kinematics)
-    // Formula: v_wheel = (vx +/- vy +/- (lx+ly)*wz) / radius
+    // Standard mecanum wheel formulas (matching ros2_control mecanum_drive_controller)
     
     // Front Left (FL)
     double fl_speed = (vx - vy - (geom_factor_ * wz)) / wheel_radius_;

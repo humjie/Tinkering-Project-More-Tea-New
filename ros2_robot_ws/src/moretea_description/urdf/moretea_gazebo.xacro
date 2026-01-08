@@ -4,45 +4,46 @@
 
   <!-- Mecanum Wheels Friction Configuration -->
   <!-- Standard "O" configuration: FL & RR have same roller angle, FR & RL have same roller angle -->
+  <!-- fdir1 is in WORLD frame, considering wheel positions and roller angles -->
   
   <!-- Front Left (wheel_left_link_1) - roller angle 45° -->
   <gazebo reference="wheel_left_link_1">
     <mu1>1.0</mu1>
-    <mu2>0.0</mu2>
+    <mu2>0.01</mu2>
     <kp>1000000.0</kp>
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
-    <fdir1>1 1 0</fdir1>
+    <fdir1>1 -1 0</fdir1>
   </gazebo>
 
   <!-- Rear Left (wheel_left_link_2) - roller angle -45° -->
   <gazebo reference="wheel_left_link_2">
     <mu1>1.0</mu1>
-    <mu2>0.0</mu2>
+    <mu2>0.01</mu2>
     <kp>1000000.0</kp>
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
-    <fdir1>1 -1 0</fdir1>
+    <fdir1>1 1 0</fdir1>
   </gazebo>
 
   <!-- Front Right (wheel_right_link_1) - roller angle -45° -->
   <gazebo reference="wheel_right_link_1">
     <mu1>1.0</mu1>
-    <mu2>0.0</mu2>
+    <mu2>0.01</mu2>
     <kp>1000000.0</kp>
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
-    <fdir1>1 -1 0</fdir1>
+    <fdir1>1 1 0</fdir1>
   </gazebo>
 
   <!-- Rear Right (wheel_right_link_2) - roller angle 45° -->
   <gazebo reference="wheel_right_link_2">
     <mu1>1.0</mu1>
-    <mu2>0.0</mu2>
+    <mu2>0.01</mu2>
     <kp>1000000.0</kp>
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
-    <fdir1>1 1 0</fdir1>
+    <fdir1>1 -1 0</fdir1>
   </gazebo>
   
 
