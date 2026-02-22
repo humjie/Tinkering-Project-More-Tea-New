@@ -1,16 +1,16 @@
-#ifndef SIMPLE_CONTROLLER_HPP
-#define SIMPLE_CONTROLLER_HPP
+#ifndef MECANUM_CONTROLLER_HPP
+#define MECANUM_CONTROLLER_HPP
 
 #include <rclcpp/rclcpp.hpp>
 #include <geometry_msgs/msg/twist_stamped.hpp>
-#include <Eigen/Core>
 #include <std_msgs/msg/float64_multi_array.hpp>
+#include <Eigen/Core>
 
 
-class SimpleController : public rclcpp::Node
+class MecanumController : public rclcpp::Node
 {
 public:
-    SimpleController(const std::string& name);
+    MecanumController(const std::string& name);
 
 private:
     void velCallback(const geometry_msgs::msg::TwistStamped &msg);
@@ -18,9 +18,14 @@ private:
     rclcpp::Subscription<geometry_msgs::msg::TwistStamped>::SharedPtr vel_sub_;
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr wheel_cmd_pub_;
 
+    // Odometry
     double wheel_radius_;
-    double wheel_separation_;
-    Eigen::Matrix2d speed_conversion_;
+    double wheel_separation_width_;
+    double wheel_separation_length_;
+
+    // Geometry factor (lx + ly) for rotation calculation
+    double geom_factor_;
+
 };
 
-#endif // SIMPLE_CONTROLLER_HPP
+#endif // MECANUM_CONTROLLER_HPP

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="wheel_radius" value="0.023" />
+  <xacro:property name="wheel_width" value="0.05" />
+  <xacro:property name="wheel_mass" value=".6" />
+  <xacro:property name="wheel_torque" value="20" />
+</robot>

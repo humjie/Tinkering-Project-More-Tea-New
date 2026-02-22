@@ -8,8 +8,17 @@ controller_manager:
     
     simple_velocity_controller:
       type: velocity_controllers/JointGroupVelocityController
+  
+    mecanum_velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
 
 simple_velocity_controller:
+  ros__parameters:
+    joints:
+      - wheel_left_joint_1
+      - wheel_right_joint_1
+
+mecanum_velocity_controller:
   ros__parameters:
     joints:
       - wheel_left_joint_1

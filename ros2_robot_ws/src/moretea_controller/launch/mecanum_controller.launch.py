@@ -41,28 +41,28 @@ def generate_launch_description():
         ]
     )
 
-    simple_controller = Node(
+    mecanum_controller = Node(
         package="controller_manager",
         executable="spawner",
         arguments=[
-            "simple_velocity_controller",
+            "mecanum_velocity_controller",
             "--controller-manager",
             "/controller_manager"
         ]
     )
 
-    simple_controller_py = Node(
+    mecanum_controller_py = Node(
         package="moretea_controller",
-        executable="simple_controller.py",
+        executable="mecanum_controller.py",
         parameters=[{"wheel_radius": wheel_radius,
                      "wheel_separation_width": wheel_separation_width,
                      "wheel_separation_length": wheel_separation_length}],
         condition=IfCondition(use_python)
     )
 
-    simple_controller_cpp = Node(
+    mecanum_controller_cpp = Node(
         package="moretea_controller",
-        executable="simple_controller",
+        executable="mecanum_controller",
         parameters=[{"wheel_radius": wheel_radius,
                      "wheel_separation_width": wheel_separation_width,
                      "wheel_separation_length": wheel_separation_length}],
@@ -75,7 +75,7 @@ def generate_launch_description():
         wheel_separation_width_arg,
         wheel_separation_length_arg,
         joint_state_broadcaster_spawner,
-        simple_controller,
-        simple_controller_py,
-        simple_controller_cpp
+        mecanum_controller,
+        mecanum_controller_py,
+        mecanum_controller_cpp
     ])

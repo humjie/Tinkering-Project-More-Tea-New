@@ -19,7 +19,9 @@ include_directories(include)
 include_directories(${EIGEN3_INCLUDE_DIR})
 
 add_executable(simple_controller src/simple_controller.cpp)
+add_executable(mecanum_controller src/mecanum_controller.cpp)
 ament_target_dependencies(simple_controller rclcpp geometry_msgs std_msgs ${Eigen_LIBRARIES})
+ament_target_dependencies(mecanum_controller rclcpp geometry_msgs std_msgs ${Eigen_LIBRARIES})
 
 install(
   DIRECTORY include
@@ -31,6 +33,11 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+install(TARGETS
+  mecanum_controller
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 install(
   DIRECTORY config launch
   DESTINATION share/${PROJECT_NAME}
@@ -38,6 +45,11 @@ install(
 
 install(PROGRAMS
   ${PROJECT_NAME}/simple_controller.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(PROGRAMS
+  ${PROJECT_NAME}/mecanum_controller.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
